@@ -45,7 +45,7 @@ public class ThiefAndPolice {
         public HackerThread(Vault vault) {
             this.vault = vault;
             this.setName(this.getClass().getSimpleName());
-            this.setPriority(Thread.MAX_PRIORITY);
+            this.setPriority(MAX_PRIORITY);
         }
 
         @Override
@@ -92,7 +92,7 @@ public class ThiefAndPolice {
         public void run() {
             for (int i = 10; i > 0; i--) {
                 try {
-                    Thread.sleep(1000);
+                    sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
