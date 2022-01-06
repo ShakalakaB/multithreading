@@ -1,4 +1,4 @@
-package fun.aldora.thread.creation;
+package fun.aldora.thread.future;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
