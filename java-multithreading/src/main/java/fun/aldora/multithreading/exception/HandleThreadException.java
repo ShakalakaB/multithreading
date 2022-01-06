@@ -1,6 +1,6 @@
-package fun.aldora.thread.exception;
+package fun.aldora.multithreading.exception;
 
-public class ThreadExceptionHandler {
+public class HandleThreadException {
     public static void main(String[] args) {
         Thread thread = new Thread(() -> {
             System.out.println("inside " + Thread.currentThread().getName());
