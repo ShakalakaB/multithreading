@@ -18,6 +18,6 @@ source: [Runnable vs. Callable in Java](https://www.baeldung.com/java-runnable-c
    + Contains `throws Exception` clause, so we can easily propagate checked exceptions further;
    
 ### Handling exceptions from ExecutorService Tasks
-1. If async task is processed by `@submit`: `Runnable` task and `Callable` task both work, exception is stored in `Future`, handle through try/catch 
-2. If async task is processed by `@execute`: only `Runnable` task works, exception is store in `Future`, handle through overriding `ThreadFactory` and add exception handler
-   
+1. If async task is processed by `@submit`: (`Runnable` task and `Callable` task both work) exception is stored in `Future`, handle through try/catch 
+2. If async task is processed by `@execute`: (only `Runnable` task works) exception can be handled through overriding `ThreadFactory` and exception handler
+3. If async task is processed by `ThreadPoolExecutor`: (only `Runnable` task works) overriding `@afterExecute` to handle exception. 

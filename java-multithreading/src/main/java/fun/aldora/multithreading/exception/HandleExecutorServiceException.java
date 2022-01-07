@@ -1,6 +1,7 @@
 package fun.aldora.multithreading.exception;
 
 import fun.aldora.multithreading.config.AppThreadFactory;
+import fun.aldora.multithreading.executor.AppThreadPoolExecutor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,6 +11,9 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,20 +22,15 @@ public class HandleExecutorServiceException {
 
     public static void main(String[] args) {
 //        handleWithTryCatch();
-        handleWithExceptionHandler();
+//        handleWithExceptionHandler();
+        handleWithThreadPoolExecutor();
 
     }
 
     private static void handleWithTryCatch() {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-        Callable<Integer> callableTask = () -> {
-            System.out.println("inside " + Thread.currentThread().getName());
-            if (1 == 1) {
-                throw new RuntimeException("TEST");
-            }
-            return 3;
-        };
+        Callable<Integer> callableTask = getCallableTask();
 
         Future<Integer> callablefuture = executorService.submit(callableTask);
         try {
@@ -41,12 +40,7 @@ public class HandleExecutorServiceException {
             logger.log(Level.SEVERE, e.getMessage());
         }
 
-        Runnable runnableTask = () -> {
-            System.out.println("inside " + Thread.currentThread().getName());
-            if (1 == 1) {
-                throw new RuntimeException("TEST");
-            }
-        };
+        Runnable runnableTask = getRunnableTask();
         Future<?> runnableFuture = executorService.submit(runnableTask);
         try {
             runnableFuture.get();
@@ -58,12 +52,36 @@ public class HandleExecutorServiceException {
     private static void handleWithExceptionHandler() {
         ExecutorService executorService = Executors.newSingleThreadExecutor(new AppThreadFactory());
 
-        Runnable runnableTask = () -> {
+        Runnable runnableTask = getRunnableTask();
+        executorService.execute(runnableTask);
+    }
+
+
+
+    private static void handleWithThreadPoolExecutor() {
+        ExecutorService executorService = new AppThreadPoolExecutor(1, 1, 0,
+                TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+
+        executorService.execute(getRunnableTask());
+    }
+
+    private static Runnable getRunnableTask() {
+        return () -> {
             System.out.println("inside " + Thread.currentThread().getName());
             if (1 == 1) {
                 throw new RuntimeException("TEST");
             }
         };
-        executorService.execute(runnableTask);
+    }
+
+    private static Callable<Integer> getCallableTask() {
+        Callable<Integer> callableTask = () -> {
+            System.out.println("inside " + Thread.currentThread().getName());
+            if (1 == 1) {
+                throw new RuntimeException("TEST");
+            }
+            return 3;
+        };
+        return callableTask;
     }
 }
