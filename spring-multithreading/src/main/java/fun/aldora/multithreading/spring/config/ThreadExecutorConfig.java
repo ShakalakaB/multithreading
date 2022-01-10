@@ -18,11 +18,11 @@ public class ThreadExecutorConfig {
         executor.setQueueCapacity(3);
         executor.setKeepAliveSeconds(5);
         executor.setAllowCoreThreadTimeOut(true);
-        executor.setWaitForTasksToCompleteOnShutdown(true);
-        executor.setAwaitTerminationSeconds(60);
-//        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+//        executor.setWaitForTasksToCompleteOnShutdown(true);
+//        executor.setAwaitTerminationSeconds(60);
+        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
 //        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
-        executor.setRejectedExecutionHandler(new AsyncTaskRejectedExceptionHandler());
+//        executor.setRejectedExecutionHandler(new AsyncTaskRejectedExceptionHandler());
         return executor;
     }
 }
