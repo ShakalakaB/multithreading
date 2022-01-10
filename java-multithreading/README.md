@@ -7,7 +7,7 @@ Multithreading practice - based on Udemy course " [Java Multithreading, Concurre
 2. `Runnable` Interface Implementation
 
 ### Thread Task Creation
-source: [Runnable vs. Callable in Java](https://www.baeldung.com/java-runnable-callable)
+*source: [Runnable vs. Callable in Java](https://www.baeldung.com/java-runnable-callable)*
 1. `Runnable` interface:  
    + `Runnable` tasks can be run using the `Thread` class or `ExecutorService@submit/execute`;
    + Does not accept any parameters and does return any values;
@@ -20,4 +20,8 @@ source: [Runnable vs. Callable in Java](https://www.baeldung.com/java-runnable-c
 ### Handling exceptions from ExecutorService Tasks
 1. If async task is processed by `@submit`: (`Runnable` task and `Callable` task both work) exception is stored in `Future`, handle through try/catch 
 2. If async task is processed by `@execute`: (only `Runnable` task works) exception can be handled through overriding `ThreadFactory` and exception handler
-3. If async task is processed by `ThreadPoolExecutor`: (only `Runnable` task works) overriding `@afterExecute` to handle exception. 
+3. If async task is processed by `ThreadPoolExecutor`: (only `Runnable` task works) overriding `@afterExecute` to handle exception.
+4. Use **Wrapper task** to handle exception (not covered in this repo, can refer to following article *Handling Exceptions from ExecutorService Tasks*)
+
+*source:*
+   + *[Handling Exceptions from ExecutorService Tasks](http://www.javabyexamples.com/handling-exceptions-from-executorservice-tasks)*
