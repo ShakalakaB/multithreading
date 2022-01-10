@@ -1,4 +1,4 @@
-package fun.aldora.multithreading.exception;
+package fun.aldora.multithreading.java.exception;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

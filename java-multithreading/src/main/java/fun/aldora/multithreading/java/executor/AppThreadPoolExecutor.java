@@ -1,4 +1,4 @@
-package fun.aldora.multithreading.executor;
+package fun.aldora.multithreading.java.executor;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;

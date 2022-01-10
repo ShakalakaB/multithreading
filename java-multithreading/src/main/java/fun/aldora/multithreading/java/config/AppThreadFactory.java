@@ -1,6 +1,6 @@
-package fun.aldora.multithreading.config;
+package fun.aldora.multithreading.java.config;
 
-import fun.aldora.multithreading.exception.AppExceptionHandler;
+import fun.aldora.multithreading.java.exception.AppExceptionHandler;
 
 import java.util.concurrent.ThreadFactory;
 

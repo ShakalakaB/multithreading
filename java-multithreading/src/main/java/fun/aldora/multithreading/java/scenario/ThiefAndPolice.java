@@ -1,4 +1,4 @@
-package fun.aldora.multithreading.scenario;
+package fun.aldora.multithreading.java.scenario;
 
 import java.util.ArrayList;
 import java.util.List;

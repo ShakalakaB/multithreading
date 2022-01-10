@@ -1,4 +1,4 @@
-package fun.aldora.multithreading.exception;
+package fun.aldora.multithreading.java.exception;
 
 public class HandleThreadException {
     public static void main(String[] args) {

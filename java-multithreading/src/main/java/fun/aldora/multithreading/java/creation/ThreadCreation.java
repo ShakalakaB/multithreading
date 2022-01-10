@@ -1,4 +1,4 @@
-package fun.aldora.multithreading.creation;
+package fun.aldora.multithreading.java.creation;
 
 public class ThreadCreation {
     public static void main(String[] args) {

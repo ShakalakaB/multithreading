@@ -1,4 +1,4 @@
-package fun.aldora;
+package fun.aldora.multithreading.java;
 
 
 public class App {
