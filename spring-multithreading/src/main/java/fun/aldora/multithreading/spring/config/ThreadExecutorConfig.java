@@ -14,7 +14,7 @@ public class ThreadExecutorConfig {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setThreadNamePrefix("simpleTaskExecutor-");
         executor.setCorePoolSize(1);
-        executor.setMaxPoolSize(1);
+        executor.setMaxPoolSize(2);
         executor.setQueueCapacity(3);
         executor.setKeepAliveSeconds(5);
         executor.setAllowCoreThreadTimeOut(true);
